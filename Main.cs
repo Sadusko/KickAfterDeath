@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +7,12 @@ using Rocket.API;
 using Rocket.Core;
 using Rocket.Unturned;
 using Rocket.Core.Plugins;
+using Rocket.Unturned.Chat;
 using SDG.Unturned;
 using SDG;
+using UnityEngine;
 
-namespace KickAfterDeath
+namespace Sadusko.KickAfterDeath
 {
     public class KickOrBanAfterDeath : RocketPlugin<Configuration>
     {
@@ -37,12 +39,15 @@ namespace KickAfterDeath
         {
             if (this.Configuration.Instance.KickAndBan)
             {
-                player.Ban(this.Configuration.Instance.kickandbanmessage, 86400);
+                player.Ban(this.Configuration.Instance.kickandbanmessage, Configuration.Instance.bantime);
+                Rocket.Core.Logging.Logger.LogWarning(player.CharacterName + " has been banned from the server because he died for " + this.Configuration.Instance.bantime + " minutes!");
+
 
             }
             if (this.Configuration.Instance.KickAndBan == false)
             {
                 player.Kick(this.Configuration.Instance.kickmessage);
+                Rocket.Core.Logging.Logger.LogWarning(player.CharacterName + " has been kicked from the server because he died!");
 
             }
         }
