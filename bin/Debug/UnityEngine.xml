@@ -30530,7 +30530,7 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
     </member>
     <member name="F:UnityEngine.ScaleMode.ScaleToFit">
       <summary>
-        <para>Scales the texture, maintaining aspect ratio, so it completely fits withing the /position/ rectangle passed to GUI.DrawTexture.</para>
+        <para>Scales the texture, maintaining aspect ratio, so it completely fits within the /position/ rectangle passed to GUI.DrawTexture.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.ScaleMode.StretchToFill">
